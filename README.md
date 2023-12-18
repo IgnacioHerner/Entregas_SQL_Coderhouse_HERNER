@@ -24,7 +24,6 @@ La base de datos desarrollada respalda este modelo centralizando información cl
 
 ### Tablas:
 
-![](./img/Diagrama_entidad_relacion.png)
 ![](./img/Tabla_cliente.png)
 ![](./img/Tabla_cuenta.png)
 ![](./img/Tabla_transacciones.png)
