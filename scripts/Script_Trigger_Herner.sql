@@ -1,23 +1,22 @@
 DELIMITER //
-
 CREATE TRIGGER log_cambios_clientes
 BEFORE UPDATE ON Clientes
 FOR EACH ROW
 BEGIN
-    -- Insertar una fila en LogCambiosClientes para cada columna modificada
-    -- Capturar información sobre el usuario, fecha y hora de la operación
-    INSERT INTO LogCambiosClientes (ID_Cliente, NombreCampoModificado, ValorAntiguo, ValorNuevo, Usuario, Fecha, Hora)
-    SELECT 
-        NEW.ID_Cliente,            -- Nuevo valor del ID_Cliente
-        COLUMN_NAME,               -- Nombre de la columna
-        OLD.COLUMN_NAME,           -- Valor antiguo de la columna
-        NEW.COLUMN_NAME,           -- Nuevo valor de la columna
-        CURRENT_USER(),            -- Usuario que realiza la operación
-        CURDATE(),                 -- Fecha actual
-        CURTIME()                  -- Hora actual
-    FROM INFORMATION_SCHEMA.COLUMNS 
-    WHERE TABLE_NAME = 'Clientes';
+    IF NEW.Nombre != OLD.Nombre THEN
+        INSERT INTO LogCambiosClientes (ID_Cliente, NombreCampoModificado, ValorAntiguo, ValorNuevo, Usuario, Fecha, Hora)
+        VALUES (NEW.ID_Cliente, 'Nombre', OLD.Nombre, NEW.Nombre, CURRENT_USER(), CURDATE(), CURTIME());
+    END IF;
+
+    IF NEW.Apellido != OLD.Apellido THEN
+        INSERT INTO LogCambiosClientes (ID_Cliente, NombreCampoModificado, ValorAntiguo, ValorNuevo, Usuario, Fecha, Hora)
+        VALUES (NEW.ID_Cliente, 'Apellido', OLD.Apellido, NEW.Apellido, CURRENT_USER(), CURDATE(), CURTIME());
+    END IF;
+
+    -- Agregar más bloques IF para otras columnas si es necesario
 END //
+DELIMITER ;
+
 
 DELIMITER //
 
