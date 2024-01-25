@@ -414,3 +414,46 @@ BEGIN
     );
 END //
 ```
+### Creacion de Usuarios
+
+Este script SQL se utiliza para crear un usuario llamado 'usuario_lectura' con permisos limitados a solo lectura en la base de datos 'gestor_bancario'. El usuario solo podrá realizar operaciones de lectura (consultas) y no tendrá permisos para realizar modificaciones en la base de datos.
+
+```
+-- Crear usuario solo con permisos de lectura
+CREATE USER 'usuario_lectura'@'localhost' IDENTIFIED BY 'contraseña_lectura';
+GRANT SELECT ON gestor_bancario.* TO 'usuario_lectura'@'localhost';
+
+SHOW GRANTS FOR 'usuario_lectura'@'localhost';
+
+SELECT user, host FROM mysql.user WHERE user = 'usuario_lectura';
+```
+
+Este script SQL se utiliza para crear un usuario llamado 'usuario_modificacion' con permisos de lectura, inserción y modificación en la base de datos 'gestor_bancario'. El usuario puede realizar consultas (SELECT), insertar nuevos registros (INSERT) y actualizar registros existentes (UPDATE). Estos permisos le permiten realizar operaciones completas de manipulación de datos en la base de datos, incluida la capacidad de modificar registros y agregar nuevos datos.
+
+```
+-- Crear usuario con permisos de lectura, insercion y modificacion
+CREATE USER 'usuario_modificacion'@'localhost' IDENTIFIED BY 'contraseña_modificacion';
+GRANT SELECT,INSERT,UPDATE ON gestor_bancario.* TO 'usuario_modificacion'@'localhost';
+
+SHOW GRANTS FOR 'usuario_modificacion'@'localhost';
+
+SELECT user, host FROM mysql.user where user = 'usuario_modificacion';
+```
+
+Este script SQL se utiliza para revocar el permiso DELETE de ambos usuarios, 'usuario_lectura' y 'usuario_modificacion', en la base de datos 'gestor_bancario'. Después de ejecutar este script, ninguno de estos usuarios podrá eliminar registros de la base de datos.
+
+```
+REVOKE DELETE ON gestor_bancario.* FROM 'usuario_lectura'@'localhost';
+REVOKE DELETE ON gestor_bancario.* FROM 'usuario_modificacion'@'localhost';
+```
+
+### Herramientas y Tecnologias
+
+- **Google Sheets:**
+  - _Descripción:_ Utilizado para la gestión y análisis de datos relacionados con el sistema de gestión bancaria.
+
+- **MySQL Workbench:**
+  - _Descripción:_ Herramienta visual para el modelado de bases de datos, desarrollo SQL y administración de MySQL.
+
+- **Git y GitHub:**
+  - _Descripción:_ Sistema de control de versiones distribuido (Git) y plataforma para el control de versiones colaborativo (GitHub).
