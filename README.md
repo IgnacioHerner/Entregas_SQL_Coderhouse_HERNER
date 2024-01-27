@@ -465,5 +465,5 @@ REVOKE DELETE ON gestor_bancario.* FROM 'usuario_modificacion'@'localhost';
 
   - _Automatiza la generación de informes mensuales para clientes.
 
-- ** Sistema de Alertas por Saldo Bajo: **
+- **Sistema de Alertas por Saldo Bajo:**
   - _Esto proporciona un mecanismo automático para alertar sobre saldos bajos.
