@@ -461,9 +461,9 @@ REVOKE DELETE ON gestor_bancario.* FROM 'usuario_modificacion'@'localhost';
 
 ### Futuras lineas 
 
-- **Generación Automática de Informes Mensuales: **
+- Generación Automática de Informes Mensuales:
 
-  - _Automatiza la generación de informes mensuales para clientes.
+  - Automatiza la generación de informes mensuales para clientes.
 
-- **Sistema de Alertas por Saldo Bajo:**
-  - _Esto proporciona un mecanismo automático para alertar sobre saldos bajos.
+- Sistema de Alertas por Saldo Bajo:
+  - Esto proporciona un mecanismo automático para alertar sobre saldos bajos.
