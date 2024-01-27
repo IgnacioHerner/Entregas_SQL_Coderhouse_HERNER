@@ -457,3 +457,13 @@ REVOKE DELETE ON gestor_bancario.* FROM 'usuario_modificacion'@'localhost';
 
 - **Git y GitHub:**
   - _Descripción:_ Sistema de control de versiones distribuido (Git) y plataforma para el control de versiones colaborativo (GitHub).
+
+
+### Futuras lineas 
+
+- **Generación Automática de Informes Mensuales: **
+
+  - _Automatiza la generación de informes mensuales para clientes.
+
+- ** Sistema de Alertas por Saldo Bajo: **
+  - _Esto proporciona un mecanismo automático para alertar sobre saldos bajos.
